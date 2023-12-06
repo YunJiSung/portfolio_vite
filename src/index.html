@@ -9,9 +9,12 @@
 </head>
 
 <body>
+
+  <div id="bootScreen" class="boot-screen"></div>
+
   <div id="desktop">
     <!-- 아이콘들 -->
-    <div class="icon" id="icon-projects"><img src="assets/image/calendar.png" alt="Projects"><span>Projects</span>
+    <div class="icon" id="icon-calendar"><img src="assets/image/calendar.png" alt="Projects"><span>Projects</span>
     </div>
     <div class="icon" id="icon-macos"><img src="assets/image/chrome.png" alt="macOS"><span>macOS</span></div>
     <div class="icon" id="icon-resume"><a href="https://github.com/YunJiSung/YunJiSung" target="_blank"><img
@@ -24,6 +27,18 @@
 
 
     <!-- 추가 아이콘들 -->
+
+    <!-- 달력 팝업 -->
+    <div id="calendarPopup" class="calendar-popup">
+      <div class="calendar-container">
+        <div class="select-container">
+          <select id="monthDropdown"></select>
+          <select id="yearDropdown"></select>
+        </div>
+        <div id="calendar"></div>
+        <button id="calendarCloseButton">Close</button>
+      </div>
+    </div>
 
     <!-- 팝업 메시지 -->
     <div id="popup" class="popup">
@@ -174,7 +189,7 @@
             <img src="assets/image/youtube_project.png" alt="Baseball Cuba" class="card-image">
           </div>
         </div>
-        <!-- //12 -->
+        <!-- //1 -->
 
       </div>
     </div>
@@ -193,8 +208,58 @@
 
   </div>
   <!-- //popup-view -->
+
+
   <script type="module" src="assets/js/main.js"></script>
 
+  <script>
+    window.addEventListener('load', function () {
+      // 로딩 후 1초를 기다린 후 부트 스크린을 숨깁니다.
+      setTimeout(() => {
+        const bootScreen = document.getElementById('bootScreen');
+        bootScreen.style.opacity = '0'; // 투명도를 0으로 설정하여 서서히 사라지게 합니다.
+        setTimeout(() => {
+          bootScreen.style.display = 'none'; // 완전히 숨깁니다.
+        }, 1000); // 투명도가 0이 된 후에도 1초를 기다렸다가 화면에서 제거합니다.
+      }, 1000); // 페이지 로드 후 1초간 부트 스크린을 보여줍니다.
+    });
+  </script>
+
+  <!-- <script>
+    window.addEventListener('load', function () {
+      document.body.classList.add('loading');
+      setTimeout(() => {
+        const bootScreen = document.getElementById('bootScreen');
+        bootScreen.style.display = 'none'; // 애니메이션 후 오버레이 숨김
+      }, 1500); // 애니메이션 지속 시간
+    });
+  </script> -->
+
+  <!-- 바팅화면 위에꺼랑 비교해보기 바로 아래 스크립트 -->
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.body.classList.add('loading');
+      setTimeout(() => {
+        const bootScreen = document.getElementById('bootScreen');
+        bootScreen.style.opacity = '0';
+        bootScreen.style.visibility = 'hidden';
+      }, 1500);
+    });
+  </script> -->
+
+
+  <!-- 여기 밑으로는 우선은 미사용 -->
+  <!-- <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loading');
+      setTimeout(() => {
+        const bootScreen = document.getElementById('bootScreen');
+        bootScreen.style.opacity = '0';
+        bootScreen.style.visibility = 'hidden';
+      }, 2000); // 필요에 따라 타이밍 조정
+    });
+  </script> -->
+  <!-- 
   <script>
     function toggleFullScreen() {
       if (!document.fullscreenElement) {
@@ -209,7 +274,89 @@
     // 전체화면 아이콘에 이벤트 리스너를 추가합니다.
     document.getElementById('icon-macos').addEventListener('click', toggleFullScreen);
 
-  </script>
+  </script> -->
+
+  <!-- <script>
+    const today = new Date();
+    let currentMonth = today.getMonth();
+    let currentYear = today.getFullYear();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const monthDropdown = document.getElementById("monthDropdown");
+    const yearDropdown = document.getElementById("yearDropdown");
+
+    function fillDropdowns() {
+      for (let i = 0; i < months.length; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = months[i];
+        monthDropdown.appendChild(option);
+      }
+
+      for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        yearDropdown.appendChild(option);
+      }
+    }
+
+    function updateCalendar() {
+      const selectedMonth = monthDropdown.value;
+      const selectedYear = yearDropdown.value;
+      showCalendar(parseInt(selectedMonth), parseInt(selectedYear));
+    }
+
+    monthDropdown.addEventListener("change", updateCalendar);
+    yearDropdown.addEventListener("change", updateCalendar);
+
+    function showCalendar(month, year) {
+      const calendar = document.getElementById("calendar");
+      calendar.innerHTML = "<ul class='weekdays'>" +
+        "<li>Su</li><li>Mo</li><li>Tu</li><li>We</li><li>Th</li><li>Fr</li><li>Sa</li>" +
+        "</ul>";
+
+      let firstDay = new Date(year, month).getDay();
+      let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+      let date = 1;
+      for (let i = 0; i < 6; i++) {
+        let row = document.createElement("ul");
+        row.className = "days";
+
+        for (let j = 0; j < 7; j++) {
+          if (i === 0 && j < firstDay) {
+            let cell = document.createElement("li");
+            row.appendChild(cell);
+          } else if (date > daysInMonth) {
+            break;
+          } else {
+            let cell = document.createElement("li");
+            cell.innerText = date;
+            if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+              cell.classList.add("bg-info");
+            }
+            row.appendChild(cell);
+            date++;
+          }
+        }
+
+        calendar.appendChild(row);
+      }
+    }
+
+    function toggleCalendarPopup() {
+      var calendarPopup = document.getElementById("calendarPopup");
+      var isDisplayed = calendarPopup.style.display === "block";
+      calendarPopup.style.display = isDisplayed ? "none" : "block";
+      if (!isDisplayed) {
+        fillDropdowns();
+        showCalendar(currentMonth, currentYear);
+      }
+    }
+
+    document.getElementById("icon-calendar").addEventListener("click", toggleCalendarPopup);
+  </script> -->
 </body>
 
 </html>
