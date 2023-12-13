@@ -1,7 +1,7 @@
 #mainIntro {
     width: 100%;
     height: 100vh;
-    background-image: url(../img/Wallpaper.jpg);
+    background-image: url(../image/Wallpaper.jpg);
     background-position: center center;
     background-size: cover;
 }
