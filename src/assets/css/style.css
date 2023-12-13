@@ -1,675 +1,137 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    color: #000;
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-body,
-html {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#desktop {
-    background-image: url('../image/hero_pc.jpg');
-    /* 배경 이미지 경로를 확인하세요 */
-    background-size: cover;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 10px;
-    flex-direction: column;
-    /* 세로 정렬 */
-}
-
-.icon {
-    display: inline-block;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* 아이콘 내의 내용을 중앙 정렬합니다. */
-    width: 60px;
-    height: 80px;
-    text-align: center;
-    /* 텍스트를 중앙 정렬합니다. */
-    color: white;
-    margin-bottom: 20px;
-}
-
-.icon>a {
-    color: #fff;
-}
-
-.icon img {
-    width: 60px;
-    height: 60px;
-}
-
-.icon span {
-    display: block;
-}
-
-#popup {
-    position: absolute;
-    top: 50px;
-    /* 위치 조정 */
-    left: 50%;
-    /* 위치 조정 */
-    transform: translateX(-50%);
-    /* 중앙 정렬 */
-
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    display: block;
-    z-index: 10;
-    /* 팝업이 초기에 보이도록 설정 */
-}
-
-.popup {
-    width: 400px;
-    background: linear-gradient(to right, #18191a, #4a91ff);
-    border-radius: 25px;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: white;
-    position: relative;
-    font-family: 'Arial', sans-serif;
-
-}
-
-.popup-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.popup-icon {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    padding: 5px;
-    margin-right: 10px;
-    font-size: 16px;
-}
-
-.popup-title {
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.popup-content {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.popup-btn {
-    width: 50px;
-    border: none;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 15px;
-    padding: 5px 0;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    display: block;
-    text-align: center;
-    margin: auto;
-}
-
-.popup-btn:hover {
-    background: rgba(255, 255, 255, 0.35);
-}
-
-/* 팝업 닫기 함수에 대한 스타일 */
-.close-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: white;
-    font-size: 20px;
-}
-
-
-#taskbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+#mainIntro {
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    /* 반투명 검정색 배경 */
-    height: 50px;
-    /* 작업 표시줄의 높이 */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    /* 좌우 여백 설정 */
-    color: #fff;
-    font-size: 12px;
-    /* 글꼴 크기 조정 */
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-    /* 그림자 추가 */
-}
-
-.taskbar-item {
-    display: inline-flex;
-    align-items: center;
-    margin: 0 10px;
-    color: white;
-    /* 아이콘들 사이의 좌우 여백 */
-    padding: 0 10px;
-}
-
-.taskbar-item#weather span {
-    margin-left: 5px;
-    /* 아이콘과 텍스트 간격 조정 */
-}
-
-.taskbar-item#time,
-.taskbar-item#language {
-    margin-left: auto;
-    /* 오른쪽 정렬을 위한 설정 */
-}
-
-.taskbar-item img {
-    height: 30px;
-    /* 작업 표시줄 아이콘의 높이 */
-    color: #fff;
-    width: 30px;
-    /* 아이콘의 너비 조정 */
-    margin-right: 5px;
-    /* 아이콘 오른쪽 마진 조정 */
-}
-
-.taskbar-item span {
-    font-size: 12px;
-    /* 텍스트 크기 조정 */
-    line-height: 1.2;
-    /* 줄 간격 조정 */
-    color: white;
-    /* 텍스트 색상 변경 */
-}
-
-/* 날씨 위젯을 왼쪽에 정렬 */
-.taskbar-item#weather {
-    display: flex;
-    /* 정렬을 위해 flexbox 사용 */
-    align-items: center;
-    /* 항목을 수직으로 중앙 정렬 */
-}
-
-#flutter-info {
-    margin-left: auto;
-}
-
-
-/* 날씨 아이콘과 텍스트 */
-#weather {
-    display: flex;
-    align-items: center;
-}
-
-.weather-temp {
-    margin-right: 5px;
-    /* 텍스트 마진 조정 */
-}
-
-/* 시간 표시 */
-#time {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.time {
-    font-weight: bold;
-    /* 시간에 대한 글꼴 무게 조정 */
-}
-
-.date {
-    font-size: 10px;
-    /* 날짜 글꼴 크기 조정 */
-}
-
-.taskbar__right {
-    display: flex;
-}
-
-/* 언어 설정 */
-#language {
-    margin-left: 20px;
-    /* 좌측 마진 조정 */
-    font-weight: bold;
-    /* 글꼴 무게 조정 */
-}
-
-
-
-#weather svg {
-    width: 24px;
-    /* 날씨 아이콘 크기 변경 */
-    height: 24px;
-    /* 날씨 아이콘 크기 변경 */
-    fill: #fff;
-}
-
-
-
-
-/* .icon {
-    display: inline-block;
-    width: 100px;
-    margin: 10px;
-    text-align: center;
-    color: white;
-}
-
-.icon img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 5px;
-    display: flex;
-}
-
-.icon span {
-    display: block;
-    margin-top: 5px;
-} */
-
-/* popup */
-.popup-view {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 1200px;
-    /* max-width: 1200px; 반응형으로 바꾸기 */
-    height: 780px;
-    background-color: #1C1B1F;
-    border: 1px solid #fff;
-    border-radius: 15px;
-    padding: 20px;
-    display: none;
-    justify-content: space-between;
-}
-
-.popup-view h3 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #fff;
-    color: #fff;
-    padding-bottom: 15px;
-}
-
-.popup-close {
-    position: absolute;
-    right: -38px;
-    top: 0px;
-    transform: translateX(-50%);
-    /* background-color: #0a4288; */
-    fill: #fff;
-    padding: 8px 20px;
-}
-
-/* card */
-
-.popup__contents {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    overflow: auto;
-    height: 700px;
-}
-
-.card {
-    width: 49.2%;
-    margin-bottom: 70px;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-
-}
-
-.card__top {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.card__top .icon img {
-    background-color: #fff;
-}
-
-.card-image-container img {
-    width: 100%;
-    vertical-align: top;
-}
-
-.card-image {
-
-
-    widows: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    /* Maintain aspect ratio, but fill the space */
-}
-
-.card-content {
-
-    text-align: left;
-}
-
-.card-title {
-    margin: 0;
-    margin-bottom: 1px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.card-subtitle {
-    margin: 0;
-    margin-bottom: 5px;
-    font-size: 15px;
-    color: #fff;
-}
-
-.card-description {
-    margin: 0;
-    font-size: 10px;
-    color: #fff;
-}
-
-.card .icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 10px 0 0;
-}
-
-.card .icon img {
-    border-radius: 10px;
-    width: 100%;
-    vertical-align: top;
-}
-
-/* 추가: 달력 팝업을 위한 스타일 */
-.calendar-popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    /* z-index: 1000; */
-    justify-content: center;
-    align-items: center;
-}
-
-.calendar-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 300px;
-
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.calendar-header {}
-
-.calendar-header h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    visibility: hidden;
-    /* Hide the static month and year title */
-}
-
-.select-container {
-    text-align: center;
-    margin: 10px 0;
-    background: #1e90ff;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-select {
-    padding: 5px;
-    margin-right: 5px;
-}
-
-.calendar-body {
-    padding: 10px;
-}
-
-.weekdays {
-    background: #ddd;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-}
-
-.weekdays li {
-    text-align: center;
-    font-weight: bold;
-    flex: 1;
-}
-
-.days {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.days li {
-    width: calc(100% / 7);
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.btn-container {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.button:focus {
-    outline: none;
-}
-
-/* booting */
-.boot-screen {
-    cursor: wait;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../image/win11_logo.png');
-    background-color: black;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 9999;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 1s ease;
-    /* 투명도 변경에 애니메이션 적용 */
-
-    /* 이미지 크기 조정 */
-    background-size: 10%;
-    /* 이미지 크기를 줄입니다. 필요에 따라 % 또는 px 단위로 조정하세요 */
-}
-
-/* 오버레이가 사라지는 효과 */
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-body.loading .boot-screen {
-    animation: fadeOut 2s ease forwards;
-}
-
-
-
-
-/* booting */
-
-/* .boot-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 9999;
-    opacity: 1;
-    visibility: visible;
-} */
-
-/* 오버레이가 사라지는 효과 */
-/* @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-body.loading .boot-screen {
-    animation: fadeOut 2s ease forwards;
-} */
-/* 부팅여기까지 사용 */
-
-
-
-/* .boot-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 9999;
-    opacity: 0;
-    
-    visibility: hidden;
-    transition: opacity 0.25s ease-out, visibility 0.25s ease-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(1.2);
-    }
-
-    50% {
-        opacity: 0;
-        transform: scale(1.1);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-body.loading .boot-screen {
-    visibility: visible;
-    animation: fadeIn 1.5s cubic-bezier(0.25, 0.15, 0.25, 1) forwards;
-} */
-
-
-
-
-
-
-
-/* .logo-container {
-    width: 100%;
-    text-align: center;
     height: 100vh;
-    background-color: black;
-    transition: opacity 0.25s ease-out;
-} */
+    background-image: url(../img/Wallpaper.jpg);
+    background-position: center center;
+    background-size: cover;
+}
 
-/* .logo-container img {
+.footer__info {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #00000083;
+    backdrop-filter: blur(16px);
+    text-align: center;
+}
+
+.footer__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__info .menu {
+    padding: 10px;
+}
+
+.footer__info .menu li {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.footer__info .menu li:hover {
+    background: #ffffff23;
+}
+
+.footer__info .menu li a {
+    padding: 7px;
+    display: inline-block;
+}
+
+.footer__info .menu img {
+    width: 25px;
+}
+
+
+.layer__about {
+    width: 80vw;
+    height: 80vh;
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translatex(-50%);
+    bottom: 80px;
+    border-radius: 1px;
+}
+
+.layer__about .list {
+    background-color: #223167a8;
+    backdrop-filter: blur(30px);
+    height: calc(100% - 70px);
+    padding: 40px;
+    color: #fff;
+    text-transform: capitalize;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.layer__about .list .work {
+    margin-bottom: 100px;
+}
+
+.layer__about .list .work h3 {
+    margin-bottom: 30px;
+    font-family: "nanumSquareNeo";
+    font-weight: 800;
+}
+
+.layer__about .list .work ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.layer__about .list .work ul li {
+    width: 100px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.layer__about .list .work ul li a {
     width: 50px;
-    height: auto;
-} */
-
-/* @media (-webkit-min-device-pixel-ratio: 1.5) and (min-resolution: 144dpi) and (min-width: 1280px) {
-    .logo-container img {
-        width: 70px;
-    }
+    height: 50px;
+    display: inline-block;
+    background-color: #ffffff57;
+    border-radius: 50%;
+    margin-bottom: 5px;
 }
 
-@media (min-width: 370px) and (max-width: 900) and (-webkit-device-pixel-ratio: 2) {
-    .logo-container img {
-        width: 120px;
-    }
+.layer__about .intro {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #22316767;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 20px 40px;
+    font-family: "nanumSquareNeo";
+    display: flex;
+    border-radius: 0 0 10px 10px;
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1.5s cubic-bezier(0.25, 0.15, 0.25, 1) forwards;
+.layer__about .intro .face {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: #000;
+    margin-right: 10px;
+    background-image: url(https://images.unsplash.com/photo-1681502014934-b70a5ff05bef?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    border-radius: 50%;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(1.2);
-    }
+.layer__about .intro h3 {
+    padding-top: 3px;
+}
 
-    50% {
-        opacity: 0;
-        transform: scale(1.1);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}  */
+.layer__about .intro .close {
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    cursor: pointer;
+}
