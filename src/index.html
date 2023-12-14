@@ -17,9 +17,24 @@
       <div class="weather"></div>
       <div class="menu">
         <ul>
-          <li>
+          <li class="menu1">
             <a href="#">
-              <img src="assets/image/Logo@3x.png" alt="">
+              <img src="assets/img/one.png" alt="">
+            </a>
+          </li>
+          <li class="menu2">
+            <a href="#">
+              <img src="assets/img/Logo@3x.png" alt="">
+            </a>
+          </li>
+          <li class="menu3">
+            <a href="#">
+              <img src="assets/img/spotify.png" alt="">
+            </a>
+          </li>
+          <li class="menu4">
+            <a href="#">
+              <img src="assets/img/newsfeed.png" alt="">
             </a>
           </li>
         </ul>
@@ -28,78 +43,77 @@
     </div>
 
 
-    <div class="layer__about">
-      <div class="list">
-        <div class="work">
-          <h3>work list</h3>
-          <div>
-            <ul>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-              <li>
-                <a href="#"></a>
-                <span>youtube</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="layer layer1 about">
+      <div class="layer__contents">
+        <h3>윤지성</h3>
+        <span class="small">Frontend developer</span>
+        <span class="mail">frontend@naver.com</span>
+        <p class="intro1">
+          안녕하세요! 창의적인 웹 디자인과 최신 프론트엔드 기술에 열정을 가진 취업 준비생입니다.<br>
+          HTML, CSS, JavaScript를 포함한 다양한 웹 기술에 능숙하며,사용자 경험을 최우선으로 생각하는 웹사이트와 애플리케이션 개발에 경험이 있습니다.
+          새로운 기술을 배우고 도전하는 것을 좋아하며, 팀과 협력하여 혁신적이고 효과적인 솔루션을 만드는 데 기여하고 싶습니다.
+        </p>
+        <p class="intro2">
+          대학에서 컴퓨터 과학을 전공하며 프론트엔드 개발에 대한 깊은 이해를 쌓았고, 다양한 프로젝트와 인턴십을 통해 실제 작업 환경에서의 경험을 얻었습니다. 반응형 웹 디자인과 크로스
+          브라우저 호환성에 대한 지식을 바탕으로 접근성과 사용성을 강조하는 웹사이트를 구축하는 데 특화되어 있습니다. 항상 최신 웹 기술 트렌드를 따르며, 새로운 프레임워크와 라이브러리를
+          배우는 것에 능동적으로 참여하여 기술 스택을 지속적으로 확장하고 있습니다
+        </p>
       </div>
-      <div class="intro">
-        <span class="face"></span>
-        <h3>윤지성 포트폴리오입니다.</h3>
-        <span class="close">닫기</span>
-      </div>
+      <div class="layer__footer">😎 윤지성 개발자입니다.</div>
     </div>
+
+    <div class="layer layer2">
+      <div class="layer__contents"></div>
+      <div class="layer__footer">layer2</div>
+    </div>
+
+    <div class="layer layer3">
+      <div class="layer__contents"></div>
+      <div class="layer__footer">layer3</div>
+    </div>
+
+    <div class="layer layer4">
+      <div class="layer__contents"></div>
+      <div class="layer__footer">layer4</div>
+    </div>
+
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/split-type"></script>
   <script>
+    gsap.set(".layer", { autoAlpha: 0, y: 20 });
+    gsap.set(".layer1", { autoAlpha: 1 });
 
-    gsap.set(".layer__about", { autoAlpha: 0, y: 20 });
+    // Selecting menu items
+    const menu1 = document.querySelector('.menu1');
+    const menu2 = document.querySelector('.menu2');
+    const menu3 = document.querySelector('.menu3');
+    const menu4 = document.querySelector('.menu4');
 
-    document.querySelector(".footer__info .menu").addEventListener("click", () => {
-      gsap.to(".layer__about", { autoAlpha: 1, y: 0, backdropFilter: "blur(10px)", duration: 0.5 })
-    });
+    // Selecting all layer popups
+    const allLayers = document.querySelectorAll('.layer');
 
-    document.querySelector(".layer__about .close").addEventListener("click", () => {
-      gsap.to(".layer__about", { autoAlpha: 0, y: 20, backdropFilter: "blur(0px)", duration: 0.5 })
-    });
+    // Function to close all popups
+    function closeAllLayers() {
+      allLayers.forEach(layer => {
+        gsap.to(layer, { autoAlpha: 0, y: 20, backdropFilter: 'blur(0px)', duration: 0.5 });
+      });
+    }
+
+    // Function to toggle visibility of a layer
+    function toggleLayer(layer) {
+      closeAllLayers(); // Close all layers first
+      gsap.to(layer, { autoAlpha: 1, y: 0, backdropFilter: 'blur(10px)', duration: 0.5 });
+    }
+
+    // Event listeners for menu items
+    menu1.addEventListener('click', () => toggleLayer(document.querySelector('.layer1')));
+    menu2.addEventListener('click', () => toggleLayer(document.querySelector('.layer2')));
+    menu3.addEventListener('click', () => toggleLayer(document.querySelector('.layer3')));
+    menu4.addEventListener('click', () => toggleLayer(document.querySelector('.layer4')));
   </script>
 </body>
 
