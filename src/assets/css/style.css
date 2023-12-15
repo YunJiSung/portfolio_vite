@@ -1,7 +1,7 @@
 #mainIntro {
     width: 100%;
     height: 100vh;
-    background-image: url(../img/Wallpaper.jpg);
+    background-image: url(../image/Wallpaper.jpg);
     background-position: center center;
     background-size: cover;
 }
@@ -118,14 +118,14 @@
 
 .about .intro1 {
     margin-top: 30px;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 500;
     line-height: 1.55;
     word-break: keep-all;
 }
 
 .about .intro2 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.6;
     margin-top: 18px;
@@ -184,15 +184,15 @@
 .text {
     width: 32%;
     margin-bottom: 2%;
-    padding: 20px;
+    /* padding: 20px; */
     box-sizing: border-box;
     border-radius: 10px;
     transition: background 0.3s;
 }
 
-.text:hover {
+/* .text:hover {
     background: #F5F5F5;
-}
+} */
 
 .text__title {
     font-size: 24px;
@@ -311,9 +311,66 @@
 
 .item-text li .text {
     width: 100%;
-    color: #7a7a7a;
+    /* color: #7a7a7a; */
     font-size: 15px;
     font-weight: 400;
     line-height: 1.6;
     margin-top: 10px;
+}
+
+
+/* 2023.12.15 */
+.section-title {
+    border-bottom: 2px solid #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    padding-bottom: 20px;
+    margin-top: 30px;
+}
+
+.section-content {
+    width: 100%;
+}
+
+.item-img img-column-04 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.item-img {
+    grid-gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 32px;
+    padding-top: 28px;
+}
+
+.item-img .img-box {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    height: 100%;
+    overflow: hidden;
+    /* position: relative; */
+    transform: translateZ(0);
+    width: 100%;
+    z-index: 5;
+}
+
+
+.item-img .img-box a {
+    background-color: rgba(var(--color-text-main-rgb), .04);
+    background-image: url();
+    background-position: 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 100%;
+    /* left: 0;
+    position: absolute;
+    top: 0; */
+    transform: translateZ(0) scale(1);
+    transition: transform .5s ease;
+    width: 100%;
+    z-index: 5;
 }
