@@ -12,6 +12,16 @@
 
 <body>
   <div id="mainIntro">
+    <div class="wallpapers">
+      <div class="draggableIcon youtubeIcon">
+        <img src="assets/img/youtube.png" alt="youtube">
+        <span>나만의 유튜브</span>
+      </div>
+      <div class="draggableIcon movieIcon">
+        <img src="assets/img/netflix.png" alt="netflix">
+        <span>영화 리스트</span>
+      </div>
+    </div>
 
     <div class="footer__info">
       <div class="weather"></div>
@@ -19,22 +29,22 @@
         <ul>
           <li class="menu1">
             <a href="#">
-              <img src="./assets/image/one.png" alt="">
+              <img src="assets/img/one.png" alt="">
             </a>
           </li>
           <li class="menu2">
             <a href="#">
-              <img src="./assets/image/Logo@3x.png" alt="">
+              <img src="assets/img/Logo@3x.png" alt="">
             </a>
           </li>
           <li class="menu3">
             <a href="#">
-              <img src="./assets/image/spotify.png" alt="">
+              <img src="assets/img/spotify.png" alt="">
             </a>
           </li>
           <li class="menu4">
             <a href="#">
-              <img src="./assets/image/newsfeed.png" alt="">
+              <img src="assets/img/newsfeed.png" alt="">
             </a>
           </li>
         </ul>
@@ -42,20 +52,43 @@
       <div class="date"></div>
     </div>
 
+    <div class="portLayer portLayer1 youtubeLayer">
+      <div class="portLayer__contents">
+        <h3>Search</h3>
+        <div class="info">
+          <div>
+            <input type="search">
+          </div>
+          <div>
+            <ul>
+              <li>all</li>
+              <li>coding</li>
+              <li>react</li>
+              <li>node.js</li>
+              <li>javascript</li>
+            </ul>
+          </div>
+        </div>
+        <div class="view">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="portLayer portLayer2 netflix">netflix</div> -->
 
     <div class="layer layer1 about">
       <div class="layer__contents">
-        <div class="layerheader">
-          <div class="headerimg">
-            <img src="./assets/image/universe.png" alt="">
-          </div>
-          <div class="headerinfo">
-            <h3>윤지성</h3>
-            <span class="small">Frontend developer</span>
-            <span class="mail">frontend@naver.com</span>
-          </div>
-        </div>
-
+        <h3>윤지성</h3>
+        <span class="small">Frontend developer</span>
+        <span class="mail">frontend@naver.com</span>
         <p class="intro1">
           안녕하세요! 창의적인 웹 디자인과 최신 프론트엔드 기술에 열정을 가진 취업 준비생입니다.<br>
           HTML, CSS, JavaScript를 포함한 다양한 웹 기술에 능숙하며,사용자 경험을 최우선으로 생각하는 웹사이트와 애플리케이션 개발에 경험이 있습니다.
@@ -66,168 +99,6 @@
           브라우저 호환성에 대한 지식을 바탕으로 접근성과 사용성을 강조하는 웹사이트를 구축하는 데 특화되어 있습니다. 항상 최신 웹 기술 트렌드를 따르며, 새로운 프레임워크와 라이브러리를
           배우는 것에 능동적으로 참여하여 기술 스택을 지속적으로 확장하고 있습니다
         </p>
-        <div class="layer__scrollable">
-          <!-- <section id="textType" class="text__wrap nexon section">
-                        <span></span>
-                        <h2>Portfolio</h2>
-                        <div class="text__inner container">
-                            <div class="text t1">
-                                <h3 class="text__title">검색 이펙트</h3>
-                                <p class="text__desc">자바스크립트의 기본 메서드를 통해 검색 스크립트를 완성하는 튜토리얼입니다. 메서드를 통해 쉽게 검색을 만들 수 있습니다
-                                </p>
-                                <a class="text__btn" href="/">더보기</a>
-                            </div>
-                            <div class="text t2">
-                                <h3 class="text__title">퀴즈 이펙트</h3>
-                                <p class="text__desc">주관식 및 객관식 퀴즈를 통해 데이터를 주고 받는 방법에 대해서 익히는 튜토리얼입니다. </p>
-                                <a class="text__btn" href="/">더보기</a>
-                            </div>
-                            <div class="text t3">
-                                <h3 class="text__title">마우스 이펙트</h3>
-                                <p class="text__desc">마우스를 통해 요소를 움직이고, 효과를 주는 스크립트 튜토리얼입니다. 다양한 효과를 통해 스크립트를 익힐 수 있습니다.
-                                </p>
-                                <a class="text__btn" href="/">더보기</a>
-                            </div>
-                            <div class="text t4">
-                                <h3 class="text__title">슬라이드 이펙트</h3>
-                                <p class="text__desc">플러그인을 사용하지 않고 이미지 슬라이드를 표현하는 방법에 대해서 체계적으로 배우는 스크립트입니다.</p>
-                                <a class="text__btn" href="/">더보기</a>
-                            </div>
-                            <div class="text t5">
-                                <h3 class="text__title">패랠랙스 이펙트</h3>
-                                <p class="text__desc">패랠랙스 스크로링 사이트에서 많이 사용되는 기법을 자바스크립트를 통해 익힙니다. 실무에서 가장 많이 쓰이는
-                                    스크립트입니다.
-                                </p>
-                                <a class="text__btn" href="/">더보기</a>
-                            </div>
-                            <div class="text t6">
-                                <h3 class="text__title">게임 이펙트</h3>
-                                <p class="text__desc">게임을 통해 자바스크립트를 익힙니다. 어려울 수 있지만 하다보면 재밌는 게임 만들기 스크립트 입니다.</p>
-                                <a class="text__btn" href="/">더보기</a>
-                            </div>
-                        </div>
-                    </section> -->
-
-          <div class="content-grid">
-            <section class="experience-container">
-              <div class="inner">
-                <h2 class="section-title">work experience</h2>
-                <div class="section-content">
-                  <ol class="item-text">
-                    <li>
-                      <div class="title">Hay collective inc.</div>
-                      <div class="subtitle"><span>Lead Product Designer</span></div>
-                      <p class="text">
-                        - 커리어 관리 서비스의 UX 리서치, 디자인 컨셉, UX Flow 설계 <br>
-                        - 커리어 프로필 기획 및 설계, 사용자의 이력을 강조하는 10개의 템플릿 제작 <br>
-                        - 디자인 시스템 구축 및 가이드라인 제작 (Figma, Framer)
-                      </p>
-                    </li>
-                    <li>
-                      <div class="title">Hay collective inc.</div>
-                      <div class="subtitle"><span>Lead Product Designer</span></div>
-                      <p class="text">
-                        - 커리어 관리 서비스의 UX 리서치, 디자인 컨셉, UX Flow 설계 <br>
-                        - 커리어 프로필 기획 및 설계, 사용자의 이력을 강조하는 10개의 템플릿 제작 <br>
-                        - 디자인 시스템 구축 및 가이드라인 제작 (Figma, Framer)
-                      </p>
-                    </li>
-                    <li>
-                      <div class="title">Hay collective inc.</div>
-                      <div class="subtitle"><span>Lead Product Designer</span></div>
-                      <p class="text">
-                        - 커리어 관리 서비스의 UX 리서치, 디자인 컨셉, UX Flow 설계 <br>
-                        - 커리어 프로필 기획 및 설계, 사용자의 이력을 강조하는 10개의 템플릿 제작 <br>
-                        - 디자인 시스템 구축 및 가이드라인 제작 (Figma, Framer)
-                      </p>
-                    </li>
-                  </ol>
-                </div>
-              </div>
-            </section>
-
-            <section class="project-container">
-              <div class="inner">
-                <h2 class="section-title">Project</h2>
-                <div class="section-content">
-                  <ol class="item-text">
-                    <li>
-                      <div class="title">Hay collective inc.</div>
-                      <div class="subtitle"><span>Lead Product Designer</span></div>
-                      <p class="text">
-                        - 커리어 관리 서비스의 UX 리서치, 디자인 컨셉, UX Flow 설계 <br>
-                        - 커리어 프로필 기획 및 설계, 사용자의 이력을 강조하는 10개의 템플릿 제작 <br>
-                        - 디자인 시스템 구축 및 가이드라인 제작 (Figma, Framer)
-                      </p>
-                    </li>
-                    <li>
-                      <div class="title">Hay collective inc.</div>
-                      <div class="subtitle"><span>Lead Product Designer</span></div>
-                      <p class="text">
-                        - 커리어 관리 서비스의 UX 리서치, 디자인 컨셉, UX Flow 설계 <br>
-                        - 커리어 프로필 기획 및 설계, 사용자의 이력을 강조하는 10개의 템플릿 제작 <br>
-                        - 디자인 시스템 구축 및 가이드라인 제작 (Figma, Framer)
-                      </p>
-                    </li>
-                    <li>
-                      <div class="title">Hay collective inc.</div>
-                      <div class="subtitle"><span>Lead Product Designer</span></div>
-                      <p class="text">
-                        - 커리어 관리 서비스의 UX 리서치, 디자인 컨셉, UX Flow 설계 <br>
-                        - 커리어 프로필 기획 및 설계, 사용자의 이력을 강조하는 10개의 템플릿 제작 <br>
-                        - 디자인 시스템 구축 및 가이드라인 제작 (Figma, Framer)
-                      </p>
-                    </li>
-                  </ol>
-                </div>
-              </div>
-            </section>
-
-          </div>
-
-          <section class="portfolio-container">
-            <div class="inner">
-              <h2 class="section-title">Portfolio</h2>
-              <div class="section-content">
-                <ol class="item-img img-column-04">
-                  <li class="img-box">
-                    <a href="#"><img src="./assets/image/01.png" alt=""></a>
-                  </li>
-                  <li class="img-box">
-                    <a href="#"><img src="./assets/image/01.png" alt=""></a>
-                  </li>
-                  <li class="img-box">
-                    <a href="#"><img src="./assets/image/01.png" alt=""></a>
-                  </li>
-                  <li class="img-box">
-                    <a href="#"><img src="./assets/image/01.png" alt=""></a>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </section>
-          <!-- 가로 스크롤 -->
-          <!-- <div class="bgSlider" id="parallax__cont">
-                        <div class="bgSliderWrap mouse__text">
-                            <a href="#" class=" parallax__item subLink">
-                                <div class="slider s1"></div>
-                            </a>
-                            <a href="#" class=" parallax__item subLink">
-                                <div class="slider s2"></div>
-                            </a>
-                            <a href="#" class=" parallax__item subLink">
-                                <div class="slider s3"></div>
-                            </a>
-                            <a href="#" class=" parallax__item subLink">
-                                <div class="slider s4"></div>
-                            </a>
-                            <a href="#" class=" parallax__item subLink">
-                                <div class="slider s5"></div>
-                            </a>
-                        </div>
-                    </div> -->
-
-        </div>
       </div>
       <div class="layer__footer">😎 윤지성 개발자입니다.</div>
     </div>
@@ -255,108 +126,66 @@
   <script src="https://unpkg.com/split-type"></script>
   <script>
     gsap.set(".layer", { autoAlpha: 0, y: 20 });
-    gsap.set(".layer1", { autoAlpha: 1 });
 
-    // 메뉴 항목 선택
+    // Selecting menu items
     const menu1 = document.querySelector('.menu1');
     const menu2 = document.querySelector('.menu2');
     const menu3 = document.querySelector('.menu3');
     const menu4 = document.querySelector('.menu4');
 
-    // 모든 레이어 팝업 선택
     const allLayers = document.querySelectorAll('.layer');
 
-    // 모든 팝업을 닫는 함수
     function closeAllLayers() {
       allLayers.forEach(layer => {
         gsap.to(layer, { autoAlpha: 0, y: 20, backdropFilter: 'blur(0px)', duration: 0.5 });
       });
     }
 
-    // 레이어의 가시성을 토글하는 함수
     function toggleLayer(layer) {
-      // 레이어가 이미 표시되고 있는지 확인
-      if (gsap.getProperty(layer, "autoAlpha") === 1) {
-        // 레이어가 표시 중이면 닫기
-        gsap.to(layer, { autoAlpha: 0, y: 20, backdropFilter: 'blur(0px)', duration: 0.5 });
-      } else {
-        // 레이어가 표시되지 않았으면 열기
-        closeAllLayers(); // 먼저 모든 레이어 닫기
-        gsap.to(layer, { autoAlpha: 1, y: 0, backdropFilter: 'blur(10px)', duration: 0.5 });
-      }
+      closeAllLayers();
+      gsap.to(layer, { autoAlpha: 1, y: 0, backdropFilter: 'blur(10px)', duration: 0.5 });
     }
 
-    // 메뉴 항목에 대한 이벤트 리스너
+    // Event listeners for menu items
     menu1.addEventListener('click', () => toggleLayer(document.querySelector('.layer1')));
     menu2.addEventListener('click', () => toggleLayer(document.querySelector('.layer2')));
     menu3.addEventListener('click', () => toggleLayer(document.querySelector('.layer3')));
     menu4.addEventListener('click', () => toggleLayer(document.querySelector('.layer4')));
 
+    // 드래그
+    function makeDraggable(element) {
+      var posX = 0, posY = 0, mouseX = 0, mouseY = 0;
 
-    // // Selecting menu items
-    // const menu1 = document.querySelector('.menu1');
-    // const menu2 = document.querySelector('.menu2');
-    // const menu3 = document.querySelector('.menu3');
-    // const menu4 = document.querySelector('.menu4');
+      element.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
 
-    // // Selecting all layer popups
-    // const allLayers = document.querySelectorAll('.layer');
+      function onMouseMove(e) {
+        posX = mouseX - e.clientX;
+        posY = mouseY - e.clientY;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        element.style.left = (element.offsetLeft - posX) + "px";
+        element.style.top = (element.offsetTop - posY) + "px";
+      }
 
-    // // Function to close all popups
-    // function closeAllLayers() {
-    //     allLayers.forEach(layer => {
-    //         gsap.to(layer, { autoAlpha: 0, y: 20, backdropFilter: 'blur(0px)', duration: 0.5 });
-    //     });
-    // }
+      function onMouseUp() {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    }
 
-    // // Function to toggle visibility of a layer
-    // function toggleLayer(layer) {
-    //     closeAllLayers(); // Close all layers first
-    //     gsap.to(layer, { autoAlpha: 1, y: 0, backdropFilter: 'blur(10px)', duration: 0.5 });
-    // }
+    // Select all elements with the class 'draggableIcon'
+    var draggableIcons = document.querySelectorAll('.draggableIcon');
 
-    // // Event listeners for menu items
-    // menu1.addEventListener('click', () => toggleLayer(document.querySelector('.layer1')));
-    // menu2.addEventListener('click', () => toggleLayer(document.querySelector('.layer2')));
-    // menu3.addEventListener('click', () => toggleLayer(document.querySelector('.layer3')));
-    // menu4.addEventListener('click', () => toggleLayer(document.querySelector('.layer4')));
-
-    // 가로 스크롤
-    // gsap.registerPlugin(ScrollTrigger);
-
-    // let sections = gsap.utils.toArray("#wrap .parallax__item");
-    // let center = gsap.utils.toArray("#wrap .centerSlider");
-    // let page = gsap.utils.toArray("#wrap .pageIndex");
-    // let title = gsap.utils.toArray("#wrap .title");
-    // let desc = gsap.utils.toArray("#wrap .desc");
-
-    // let animation = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: "#parallax__cont",
-    //         pin: true,
-    //         scrub: 1,
-    //         snap: 1 / (sections.length - 1),
-    //         end: "+=5500",
-    //     }
-    // });
-
-    // ScrollTrigger.matchMedia({
-    //     "(min-width: 801px)": function () {
-    //         animation.to(sections, { xPercent: -100 * (sections.length - 1), ease: "none" }, 0)
-    //             .to(center, { y: -1080 * (center.length - 1), ease: "none" }, 0)
-    //             .to(desc, { y: -24 * (desc.length - 1), ease: "none" }, 0)
-    //             .to(page, { y: -24 * (page.length - 1), ease: "none" }, 0)
-    //             .to(title, { y: -72 * (title.length - 1), ease: "none" }, 0);
-    //     },
-    //     "(max-width: 800px)": function () {
-    //         animation.to(sections, { xPercent: -100 * (sections.length - 1), ease: "none" }, 0)
-    //             .to(center, { y: -1080 * (center.length - 1), ease: "none" }, 0)
-    //             .to(desc, { y: -22.39 * (desc.length - 1), ease: "none", toggleActions: 'play none none reverse', }, 0)
-    //             .to(page, { y: -22.39 * (page.length - 1), ease: "none", toggleActions: 'play none none reverse', }, 0)
-    //             .to(title, { y: -43 * (title.length - 1), ease: "none", toggleActions: 'play none none reverse', }, 0);
-    //     }
-    // });
-
+    // Apply the dragging functionality to each icon
+    draggableIcons.forEach(function (icon) {
+      makeDraggable(icon);
+    });
   </script>
 </body>
 
